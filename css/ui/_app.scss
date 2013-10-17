@@ -1,0 +1,13 @@
+body, html {
+	height: 100%;
+	overflow-y: hidden;
+}
+
+.applicatie {
+	height: 100%;
+
+	iframe {
+		width: 100%;
+		height: 100%;
+	}
+}

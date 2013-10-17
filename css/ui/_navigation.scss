@@ -1,0 +1,19 @@
+.nav {
+	height: 100%; width: $navigation-width;
+	background-color: $navigation-background;
+	margin: 0;
+
+	& > li {
+		padding: $half-spacing-unit $base-spacing-unit;
+		cursor: pointer;
+
+		&:hover, &:active, &.active {
+			background-color: $navigation-background-active;
+		}
+
+		a {
+			color: white;
+			text-decoration: none;
+		}
+	}
+}
