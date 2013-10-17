@@ -1,7 +1,18 @@
+.nav--header {
+	color: white;	
+	margin: $half-spacing-unit $half-spacing-unit;
+	cursor: pointer;
+	border-bottom: 1px solid rgba(white,0.5);
+
+	.icon-close {
+		float: right;
+	}
+}
+
 .nav {
 	height: 100%; width: $navigation-width;
-	background-color: $navigation-background;
 	margin: 0;
+	transition: width 1s ease-in-out;
 
 	& > li {
 		padding: $half-spacing-unit $base-spacing-unit;
@@ -16,4 +27,8 @@
 			text-decoration: none;
 		}
 	}
+}
+
+.nav--collapsed {
+	width: $navigation-width-collapsed;
 }
