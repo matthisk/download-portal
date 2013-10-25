@@ -1,0 +1,44 @@
+.nav--header {
+	color: white;
+	margin: $half-spacing-unit $half-spacing-unit;
+	cursor: pointer;
+	border-bottom: 1px solid rgba(white,0.5);
+
+	.icon-close {
+		float: right;
+	}
+}
+
+.nav {
+	height: 100%; width: 100%;
+	margin: 0;
+	background-color: $nav-background;
+	transition: width 1s ease-in-out;
+
+	& > li {
+		margin-top: 1px;
+		padding: $half-spacing-unit $base-spacing-unit;
+		cursor: pointer;
+
+		&:hover, &:active, &.active {
+			background-color: $nav-background-active;
+		}
+
+		&:first-child {
+			margin-top: 0;
+		}
+
+		a {
+			color: white;
+			text-decoration: none;
+		}
+
+		span {
+			padding-left: $half-spacing-unit;
+		}
+	}
+}
+
+.holygrail__small .nav span {
+	display: none;
+}

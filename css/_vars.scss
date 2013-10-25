@@ -69,9 +69,13 @@ $use-greybox:       false;
 /**
  * Place any of your own variables that sit on top of inuit.css here.
  */
-$navigation-width: 165px !default;
-$navigation-width-collapsed: 50px !default;
-$navigation-background: #383e4b;
-$navigation-background-active: #2d323d;
+$nav-width: 165px !default;
+$nav-width-collapsed: 50px !default;
+$nav-background: #383e4b;
+$nav-background-active: #2d323d;
 
-$holy-grail-left: $navigation-width;
+$holygrail-left: 180px;
+$holygrail-small-left: 60px;
+
+$app-loading-background: $nav-background-active;
+$app-spinner-color: white;

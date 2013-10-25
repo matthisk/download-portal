@@ -1,24 +1,45 @@
 (function($) {
-	$(document).ready(function() {
-		var $applicatie = $('.applicatie');
-		var $frame = $applicatie.find('iframe');
+	AppView = function(node) {
+		this.$node = node;
+	}
 
-		setTimeout(function() {
-			$('.container').addClass('collapsed');
-		}.bind(this),3000);
+	AppView.prototype.load = function() {
+		this.$node.addClass('app__loading');
+	}
 
-		$frame.on('load',function() {
-			console.log('loaded');
-			$applicatie.removeClass('loading');
+	AppView.prototype.unLoad = function() {
+		this.$node.removeClass('app__loading');
+	}
+
+	AppController = function(node,buttons) {
+		this.$node = node;
+		this.$buttons = buttons;
+		this.frame = this.$node.find('iframe');
+
+		this.view = new AppView(this.$node);
+
+		this.bindEventHandlers();
+	}
+
+	AppController.prototype.bindEventHandlers = function() {
+		var self = this;
+
+		this.frame.on('load',function() {
+			self.view.unLoad();
 		});
 
-		$('.nav-main a').click(function(e) {
+		this.$buttons.click(function(e) {
 			e.preventDefault();
 
-			$applicatie.addClass('loading');
-			$frame.attr('src',$(this).attr('href'));
-			$('.active').removeClass('active');
+			self.view.load();
+			self.frame.attr('src',$(this).attr('href'));
+			$('.nav .active').removeClass('active');
 			$(this).parent().addClass('active');
 		});
+	}
+
+
+	$(document).ready(function() {
+		var appController = new AppController($('.app'),$('.nav a'));
 	});
 })(jQuery);
